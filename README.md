@@ -34,3 +34,6 @@ scripts/deploy_RoboPunksNFT.js 会调用本地配置hardhat.config.js中的配�
 
 ## 最终运行效果
 ![](./md_img/2022-06-14-13-26-32.jpg)
+
+## 学习交流
+学习web3和区块链的小伙伴，可以加qq: 285861181 ，共同交流。
