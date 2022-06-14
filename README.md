@@ -8,6 +8,7 @@
 
 ## 领取rinkeby测试网络ETH水龙头地址：
 https://fauceth.komputing.org/
+
 https://faucet.rinkeby.io/
 
 ## 在infura上创建应用，并Endpoints类型设置为rinkeby
@@ -23,3 +24,6 @@ https://infura.io/dashboard
 scripts/deploy_RoboPunksNFT.js 会调用本地配置hardhat.config.js中的配置进行部署
 4.npx hardhat verify --network rinkeby 合约地址
 上面的命令的目的是为了再次验证我们的合约，然后再etherscan.io上找到合约时，能够看到contract中的代码和对应的方法。
+
+## 最终运行效果
+![](./md_img/2022-06-14-13-26-32.jpg)
