@@ -1,5 +1,6 @@
 const { ethers } = require("ethers");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const Token = require("../src/contracts/Token.json");
 const contractAddress = require("../src/contracts/contract-address.json");
 

@@ -17,7 +17,7 @@ async function main() {
   );
 
   let balance = await deployer.getBalance();
-  console.log("Account balance:", ethers.utils.parseEther(balance.toString()));
+  console.log("Account balance:", ethers.utils.formatEther(balance));
   // We get the contract to deploy
   const RoboPunksNFT = await ethers.getContractFactory(CONTRACT_NAME);
   const token = await RoboPunksNFT.deploy();

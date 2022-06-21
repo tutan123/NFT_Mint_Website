@@ -1,9 +1,12 @@
 const { ethers, BigNumber } = require("ethers");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const Token = require("../src/contracts/Token.json");
 const contractAddress = require("../src/contracts/contract-address.json");
 const rpc = process.env.REACT_APP_PINKEBY_RPC_URL;
 const privateKey = process.env.REACT_APP_PRIVATE_KEY;
+
+console.log("privateKey", privateKey);
 
 const provider = new ethers.providers.JsonRpcProvider(rpc);
 const account6 = "0x5CBB80682E6B57D2c2234B0a48Bb16950CF134De";
@@ -18,6 +21,23 @@ const contract = new ethers.Contract(
   Token.abi,
   signer
 );
+
+// const getContract = async (address, ABI, library, account) => {
+//   // if (!isAddress(address) || address === AddressZero) {
+//   //   throw Error(`Invalid 'address' parameter '${address}'.`)
+//   // }
+
+//   return new ethers.Contract(
+//     address,
+//     ABI,
+//     getProviderOrSigner(library, account)
+//   );
+// };
+
+// // account is optional
+// const getProviderOrSigner = async (library, account) => {
+//   return getSigner(library, account);
+// };
 
 const getBlockNumber = async () => {
   const blockNumber = await provider.getBlockNumber();
@@ -48,7 +68,10 @@ const transfer = async (from, to, value) => {
 
   let balance_from = await from.getBalance();
   let balance_to = await provider.getBalance(account6);
-  console.log(balance_from, balance_to);
+  console.log(
+    ethers.utils.formatEther(balance_from),
+    ethers.utils.formatEther(balance_to)
+  );
 };
 
 //mint
@@ -77,10 +100,12 @@ const publish = async (value) => {
 };
 
 const main = async () => {
-  await getBlockNumber();
+  let balance_to = await provider.getBalance(account6);
+  console.log(ethers.utils.formatEther(balance_to));
+  // await getBlockNumber();
   // await transfer(signer, account6, "0.1");
   // await mint(contract, "1");
-  await publish(true);
+  // await publish(true);
 };
 
 main();
