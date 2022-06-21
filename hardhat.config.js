@@ -25,6 +25,15 @@ module.exports = {
       url: process.env.REACT_APP_PINKEBY_RPC_URL,
       accounts: [process.env.REACT_APP_PRIVATE_KEY],
     },
+    // 本地测试环境
+    ganache: {
+      url: "http://127.0.0.1:8545",
+    },
+    // // hecotest测试环境
+    // hecotest: {
+    //   url: "http://http-testnet.hecochain.com",
+    //   accounts: [""],
+    // },
   },
   etherscan: {
     apiKey: process.env.REACT_APP_ETHERSCAN_KEY,

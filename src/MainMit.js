@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 // 合约对应的json文件--合约编译后
-import roboPunksNFT from "./RoboPunksNFT.json";
+import Token from "./contracts/Token.json";
+import contractAddress from "./contracts/contract-address.json";
 
 const MainMit = ({ accounts, setAccounts }) => {
   const [mintAmount, setMintAccount] = useState(1);
@@ -13,8 +14,8 @@ const MainMit = ({ accounts, setAccounts }) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
-        process.env.CONTRACT_ADDRESS, // 合约地址
-        roboPunksNFT.abi,
+        contractAddress.Token, // 合约地址
+        Token.abi,
         signer
       );
       try {

@@ -8,12 +8,12 @@ const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
 
   async function connectAccount() {
-    console.log("window.ethereum", window.ethereum);
+    // console.log("window.ethereum", window.ethereum);
     if (window.ethereum) {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-      console.log('accounts', accounts, '=====');
+      // console.log('accounts', accounts, '=====');
       setAccounts(accounts);
     }
   }

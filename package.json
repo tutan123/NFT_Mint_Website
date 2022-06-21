@@ -17,9 +17,18 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "precompile": "rimraf src/contracts/*",
     "compile": "npx hardhat clean && npx hardhat compile",
+    "precompile:w": "npm run compile",
+    "compile:w": "onchange 'contracts/*.sol' -- npm run compile",
     "deploy": "npx hardhat run scripts/deploy_RoboPunksNFT.js --network rinkeby",
+    "deploy:ganache": "npx hardhat run scripts/deploy_RoboPunksNFT.js --network ganache",
     "verify": "npx hardhat verify --network rinkeby <部署合约成功后的合约地址>",
+    "test:w": "mocha --watch",
+    "rebuild": "npm run compile && mocha",
+    "prerebuild:w": "npm run rebuild",
+    "rebuild:w": "onchange 'contracts/*.sol' 'test/*.js' -- npm run rebuild",
+    "publish":"node scripts/publish.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +60,7 @@
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.8",
-    "hardhat": "^2.9.9"
+    "hardhat": "^2.9.9",
+    "onchange": "^7.1.0"
   }
 }
